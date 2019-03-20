@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { sum } from 'ramda'
 import styled, { keyframes } from 'styled-components'
-import './App.css'
 import Counter from './Counter'
 
-const backgroundOpacity = keyframes`
+export const backgroundOpacity = keyframes`
   from {
     background: rgba(66, 196, 255, 1);
   }
@@ -12,7 +11,17 @@ const backgroundOpacity = keyframes`
   to {
     background: rgba(66, 196, 255, .1);
   }
-`;
+`
+
+const AppWrap = styled.main`
+  width: 1100px;
+  margin:0 auto;
+  
+  @media (max-width: 400px) {
+    background: LAVENDER;
+    width: 100%;
+  }
+`
 
 const StatusLbl = styled.span`
  font-family: "Helvetica Neue";
@@ -35,11 +44,13 @@ const ActiveStatusLbl = styled(StatusLbl)`
 `
 
 const PriceLbl = styled.div`
-  margin-top: 40px;
-  font-family: "Roboto";
   color: #282c34;
   font-weight: bold;
   font-size: x-large;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 `
 
 const Status = ({ isIdle }) => {
@@ -70,12 +81,15 @@ const App = () => {
   }, [adultPrice, childPrice, teenPrice])
 
   return (
-      <div className="App">
+      <AppWrap>
         <Counter title="adult ⓧ 10€" price={10} setPrice={setAdultPrice}/>
-        <Counter title="teenager ⓧ 7€" price={7} setPrice={setTeenPrice}/>
+        <Counter title="teen ⓧ 7€" price={7} setPrice={setTeenPrice}/>
         <Counter title="child ⓧ 2€" price={2} setPrice={setChildPrice}/>
-        <PriceLbl style={{ color: isIdle ? 'darkblue' : 'greenyellow' }}>Total price: {total}€ <Status isIdle={isIdle}/></PriceLbl>
-      </div>
+        <PriceLbl style={{ color: isIdle ? 'darkblue' : 'green' }}>
+          <span>Total price: {total}€</span>
+          <Status isIdle={isIdle}/>
+        </PriceLbl>
+      </AppWrap>
   )
 }
 

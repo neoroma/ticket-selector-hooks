@@ -5,6 +5,12 @@ const CounterBase = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  
+  @media (max-width: 400px) {
+    padding: 5px;
+    width: 95%;
+    flex-direction: column;
+  }
 `
 
 const CounterAction = styled.div`
@@ -12,14 +18,30 @@ const CounterAction = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 700px;
+  
+  @media (max-width: 400px) {
+    width: 100%;
+    flex-direction: row;
+  }
 `
 
 const ActionButton = styled.button`
-  font-size: 20px
+  font-size: 20px;
+  @media (max-width: 400px) {
+    font-size: 25px;
+    border: 1px solid blue;
+    border-radius: 10px;
+  }
+`
+
+const DebugInfo = styled.div`
+   @media (max-width: 400px) {
+    display: none;
+  }
 `
 
 const Amount = styled.span`
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 75px;
   padding: 0 20px;
 `
@@ -47,13 +69,12 @@ const Counter = ({ price = 0, setPrice, title = '' }) => {
 
   return (
       <CounterBase>
-        <div style={{ width: '160px' }}>{title}</div>
-        <div style={{ width: '60px' }}>{price * amount}€</div>
+        <div>{title} ({price * amount}€)</div>
         <CounterAction>
-          <ActionButton onClick={dec}>Decrease</ActionButton>
+          <ActionButton onClick={dec}>Dec(-)</ActionButton>
           <Amount>{amount}</Amount>
-          <ActionButton onClick={inc}>Increase</ActionButton>
-          <div>The result to send to the server: {result}</div>
+          <ActionButton onClick={inc}>Inc(+)</ActionButton>
+          <DebugInfo>The result to send to the server: {result}</DebugInfo>
         </CounterAction>
       </CounterBase>
   )
