@@ -25,15 +25,6 @@ const CounterAction = styled.div`
   }
 `
 
-const ActionButton = styled.button`
-  font-size: 20px;
-  @media (max-width: 400px) {
-    font-size: 25px;
-    border: 1px solid blue;
-    border-radius: 10px;
-  }
-`
-
 const DebugInfo = styled.div`
    @media (max-width: 400px) {
     display: none;
@@ -71,9 +62,9 @@ const Counter = ({ price = 0, setPrice, title = '' }) => {
       <CounterBase>
         <div>{title} ({price * amount}€)</div>
         <CounterAction>
-          <ActionButton onClick={dec}>Dec(-)</ActionButton>
+          <button onClick={dec}>decrease</button>
           <Amount>{amount}</Amount>
-          <ActionButton onClick={inc}>Inc(+)</ActionButton>
+          <button onClick={inc}>increase</button>
           <DebugInfo>The result to send to the server: {result}</DebugInfo>
         </CounterAction>
       </CounterBase>
