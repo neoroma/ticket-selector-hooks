@@ -14,6 +14,16 @@ const CounterAction = styled.div`
   width: 700px;
 `
 
+const ActionButton = styled.button`
+  font-size: 20px
+`
+
+const Amount = styled.span`
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 75px;
+  padding: 0 20px;
+`
+
 const Counter = ({ price = 0, setPrice, title = '' }) => {
 
   const [amount, setAmount] = useState(0)
@@ -32,18 +42,17 @@ const Counter = ({ price = 0, setPrice, title = '' }) => {
     return () => clearInterval(interval)
   }, [amount])
 
+  const dec = () => amount > 0 && setAmount(amount - 1)
+  const inc = () => amount < 100 && setAmount(amount + 1)
+
   return (
       <CounterBase>
-        <div style={{ width: '100px' }}>{title}</div>
-        <div style={{ width: '100px' }}>{price * amount}€</div>
+        <div style={{ width: '160px' }}>{title}</div>
+        <div style={{ width: '60px' }}>{price * amount}€</div>
         <CounterAction>
-          <button style={{ fontSize: '20px' }}
-                  onClick={() => amount > 0 && setAmount(amount - 1)}>Decrease
-          </button>
-          <span style={{ fontSize: '100px', padding: '0 20px' }}>{amount}</span>
-          <button style={{ fontSize: '20px' }}
-                  onClick={() => amount < 100 && setAmount(amount + 1)}>Increase
-          </button>
+          <ActionButton onClick={dec}>Decrease</ActionButton>
+          <Amount>{amount}</Amount>
+          <ActionButton onClick={inc}>Increase</ActionButton>
           <div>The result to send to the server: {result}</div>
         </CounterAction>
       </CounterBase>
