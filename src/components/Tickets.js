@@ -61,7 +61,7 @@ const Status = ({ isIdle }) => {
 
 }
 
-const App = () => {
+const Tickets = () => {
 
   const [adultPrice, setAdultPrice] = useState(0)
   const [teenPrice, setTeenPrice] = useState(0)
@@ -93,4 +93,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Tickets
