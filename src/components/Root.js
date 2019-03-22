@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import styled from 'styled-components'
 import { Lost } from './Lost'
+import Loader from './Loader'
 
 const Tickets = lazy(() => import('./Tickets'))
 const Packages = lazy(() => import('./Packages'))
@@ -26,7 +27,7 @@ function Root() {
               <NavLinkStyled to="/">home</NavLinkStyled>
             </div>
             <Switch>
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<Loader />}>
                 <Route path='/' exact={true} component={Packages}/>
                 <Route path='/tickets' component={Tickets}/>
               </Suspense>
