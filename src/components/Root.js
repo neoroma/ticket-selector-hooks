@@ -1,9 +1,19 @@
-import React, { Fragment } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-
-import Tickets from './Tickets'
-import Packages from './Packages'
+import React, { Fragment, lazy, Suspense } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  NavLink,
+} from 'react-router-dom'
+import styled from 'styled-components'
 import { Lost } from './Lost'
+
+const Tickets = lazy(() => import('./Tickets'))
+const Packages = lazy(() => import('./Packages'))
+
+const NavLinkStyled = styled(NavLink)`
+  padding: 5px 10px;
+`
 
 function Root() {
   return (
@@ -12,10 +22,14 @@ function Root() {
           <Fragment>
             <div>
               You are here:
+              <NavLinkStyled to="/tickets">tickets</NavLinkStyled>
+              <NavLinkStyled to="/">home</NavLinkStyled>
             </div>
             <Switch>
-              <Route path='/' exact={true} component={Packages}/>
-              <Route path='/tickets' component={Tickets}/>
+              <Suspense fallback={<div>Loading...</div>}>
+                <Route path='/' exact={true} component={Packages}/>
+                <Route path='/tickets' component={Tickets}/>
+              </Suspense>
               <Route component={Lost}/>
             </Switch>
           </Fragment>
