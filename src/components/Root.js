@@ -19,14 +19,27 @@ const Blank = lazy(() => import('./Blank'))
 
 const NavLinkStyled = styled(NavLink)`
   padding: 5px 10px;
-  border: 1px solid aquamarine;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0;
+  flex: 1 1 0;
+  text-transform: capitalize;
+  text-align: center;
+  background: coral;
+  text-decoration: none;
+  color: black;
+  transition: all .5s ease;
+  
+  ::before {
+    content: '🦉';
+  }
+  
+  :hover {
+    background: black;
+    color: coral;
+  }
 `
 
 const Flexr = styled.div`
-  height: 200px;
+  font-family: 'Dosis', 'DejaVu Sans Mono', monospace;
+  height: 60px;
   width: 100%;
   border: 1px solid crimson;
   display: flex;
