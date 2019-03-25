@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const CounterBase = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   
   @media (max-width: 400px) {
@@ -17,11 +17,13 @@ const CounterAction = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 700px;
+  flex-basis: 500px;
+  flex-grow: 2;
   
   @media (max-width: 400px) {
     width: 100%;
     flex-direction: row;
+    flex-basis: 100px;
   }
 `
 
@@ -35,6 +37,11 @@ const Amount = styled.span`
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 75px;
   padding: 0 20px;
+`
+
+const Title = styled.div`
+  flex-basis: 100px;
+  flex-grow: 1;
 `
 
 const Counter = ({ price = 0, setPrice, title = '' }) => {
@@ -60,7 +67,7 @@ const Counter = ({ price = 0, setPrice, title = '' }) => {
 
   return (
       <CounterBase>
-        <div>{title} ({price * amount}€)</div>
+        <Title>{title} ({price * amount}€)</Title>
         <CounterAction>
           <button onClick={dec}>decrease</button>
           <Amount>{amount}</Amount>

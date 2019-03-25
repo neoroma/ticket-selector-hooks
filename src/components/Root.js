@@ -20,18 +20,21 @@ const Blank = lazy(() => import('./Blank'))
 const NavLinkStyled = styled(NavLink)`
   padding: 5px 10px;
   border: 1px solid aquamarine;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
 `
 
 const Flexr = styled.div`
   height: 200px;
-  width: 500px;
+  width: 100%;
   border: 1px solid crimson;
   display: flex;
   flex-direction: row;
-  flex-flow: wrap;
-  font-size: 38px;
-  justify-content: space-around;
-  align-content: flex-end;
+  font-size: 32px;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
 `
 
 function Root() {
