@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrap = styled.section`
-    font-family: 'scribble';
+    font-family: 'scribble', 'DejaVu Sans Mono', monospace;
 `
 
-const Header = styled.div`
+const Header = styled.header`
   background: cornsilk;
   display: flex;
   flex-direction: row;
@@ -13,10 +13,12 @@ const Header = styled.div`
   height: 110px;
   align-items: center;
   justify-content: center;
-  font-size: large;
+  font-size: 2em;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px black;
 `
 
-const ContentWrap = styled.div`
+const ContentWrap = styled.main`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -28,15 +30,18 @@ const Content = styled.div`
   flex-basis: 400px;
   flex-grow: 3;
   flex-shrink: 0;
+  padding: 2em;
+  line-height: 1.5;
+  font-size: 1.1em;
 `
 
-const Sidebar = styled.div`
-  width: 25%;
+const SidebarRight = styled.div`
   flex-basis: 100px;
   flex-grow: 1;
   flex-shrink: 0;
   color: white;
   background: crimson;
+  padding: 1em;
 `
 
 const Footer = styled.footer`
@@ -50,7 +55,7 @@ const Footer = styled.footer`
 function Landing() {
   return (
       <Wrap>
-        <Header>Header</Header>
+        <Header>Personal Personal Personal</Header>
         <ContentWrap>
           <Content>Contrary to popular belief, Lorem Ipsum is not simply random
             text. It has roots in a piece of classical Latin literature from 45
@@ -69,9 +74,9 @@ function Landing() {
             Finibus Bonorum et Malorum" by Cicero are also reproduced in their
             exact original form, accompanied by English versions from the 1914
             translation by H. Rackham.</Content>
-          <Sidebar>Sidebar</Sidebar>
+          <SidebarRight>Sidebar</SidebarRight>
         </ContentWrap>
-        <Footer>Footer</Footer>
+        <Footer><h2>Footer</h2></Footer>
       </Wrap>
   )
 }
