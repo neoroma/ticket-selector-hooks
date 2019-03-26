@@ -28,7 +28,7 @@ const NavLinkStyled = styled(NavLink)`
   transition: all .5s ease;
   
   ::before {
-    content: '🦉';
+    content: '🎃';
   }
   
   :hover {
@@ -45,9 +45,51 @@ const Flexr = styled.div`
   display: flex;
   flex-direction: row;
   font-size: 32px;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: stretch;
   flex-wrap: wrap;
+  margin-bottom: 1em;
+`
+
+const NavWrap = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+`
+
+const NavItem = styled(NavLink)`
+  font-family: 'Dosis', 'DejaVu Sans Mono', monospace;
+  text-decoration: none;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 160px;
+  padding: 5px;
+  :nth-child(even){
+    background: beige;
+  }
+  display: flex;
+  color: olivedrab;
+  
+  transition: all .7s ease;
+  
+  :hover {
+    background: greenyellow;
+  }
+`
+
+const IconDiv = styled.div`
+  flex-basis: 40px;
+  font-size: 25px;
+`
+
+const TextDiv = styled.div`
+  font-size: 18px;
+  font-weight: bolder;
+  span{
+    font-size: 12px;
+    font-weight: lighter;
+    display: block;
+  }
 `
 
 function Root() {
@@ -64,6 +106,35 @@ function Root() {
                   <NavLinkStyled to="/front">front</NavLinkStyled>
                   <NavLinkStyled to="/face">face</NavLinkStyled>
                 </Flexr>
+                <NavWrap>
+                  <NavItem to="/">
+                    <IconDiv>🏠</IconDiv>
+                    <TextDiv>First page
+                      here<span>more text here</span></TextDiv>
+                  </NavItem>
+                  <NavItem to="/tickets">
+                    <IconDiv>🎫</IconDiv>
+                    <TextDiv>Select types of tickets<span>more text here</span></TextDiv>
+                  </NavItem>
+                  <NavItem to="/blank">
+                    <IconDiv>👾</IconDiv>
+                    <TextDiv>Just a blank
+                      area<span>more text here</span></TextDiv>
+                  </NavItem>
+                  <NavItem to="/bank">
+                    <IconDiv>👾</IconDiv>
+                    <TextDiv>Bank operation<span>more text here</span></TextDiv>
+                  </NavItem>
+                  <NavItem to="/front">
+                    <IconDiv>👾</IconDiv>
+                    <TextDiv>Front page
+                      specs<span>more text here</span></TextDiv>
+                  </NavItem>
+                  <NavItem to="/face">
+                    <IconDiv>🙀</IconDiv>
+                    <TextDiv>Face off<span>more text here</span></TextDiv>
+                  </NavItem>
+                </NavWrap>
                 <Suspense fallback={<Loader/>}>
                   <Switch location={location}>
                     <Route path='/' exact={true} component={Packages}/>
