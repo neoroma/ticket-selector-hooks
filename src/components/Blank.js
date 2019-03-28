@@ -8,6 +8,7 @@ const Wrap = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  perspective: 500px;
 `
 
 const OnTransition = styled.div`
@@ -21,13 +22,16 @@ const OnTransition = styled.div`
   cursor: pointer;
   border-radius: 50%;
   transition: transform 1s;
-  //transform-origin: top;
+  //transform-origin: 0;
   
   :hover {
     //transform: translateX(-10%);
-    transform: scale(.8);
+    //transform: scale(.8);
     //transform: rotate(90deg);
     //transform: skew(-20deg);
+
+    transform: rotate(80deg);
+    //transform: translateZ(100px);
   }
 `
 
