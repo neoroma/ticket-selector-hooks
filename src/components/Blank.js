@@ -18,14 +18,16 @@ const OnTransition = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all .3s ease-out;
   cursor: pointer;
   border-radius: 50%;
+  transition: transform 1s;
+  //transform-origin: top;
   
   :hover {
-    background-color: orangered;
-    height: 105px;
-    width: 105px;
+    //transform: translateX(-10%);
+    transform: scale(.8);
+    //transform: rotate(90deg);
+    //transform: skew(-20deg);
   }
 `
 
