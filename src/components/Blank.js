@@ -26,13 +26,52 @@ const OnTransition = styled.div`
   
   :hover {
     //transform: translateX(-10%);
-    //transform: scale(.8);
+    transform: scale(.8);
     //transform: rotate(90deg);
     //transform: skew(-20deg);
 
-    transform: rotate(80deg);
+    //transform: rotate(80deg);
     //transform: translateZ(100px);
   }
+`
+const OnTransitionTwo = styled.section`
+   font-family: 'Dosis', 'DejaVu Sans Mono', monospace;
+   margin-left: 25px;
+   display: flex;
+   
+   a {
+    text-decoration: none;
+    color: black;
+    border: 5px solid black;
+    font-size: 45px;
+    padding: 40px 80px;
+    font-weight: bold;
+    position: relative;
+    overflow: auto;
+    transition: color .5s;
+   }
+   
+   a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transform-origin: bottom left;
+    transform: translateX(-100%);
+    transition: transform .5s;
+   }
+   
+   a:hover::before {
+      transform: translateX(0);
+   }
+   
+   a:hover {
+      color: white;
+   }
 `
 
 function Blank() {
@@ -41,6 +80,9 @@ function Blank() {
         <OnTransition>
           cube
         </OnTransition>
+        <OnTransitionTwo>
+          <a href="#">Hover me long long text here</a>
+        </OnTransitionTwo>
       </Wrap>
   )
 }
