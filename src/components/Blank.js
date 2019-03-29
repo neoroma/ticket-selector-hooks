@@ -35,7 +35,7 @@ const OnTransition = styled.div`
   }
 `
 const OnTransitionTwo = styled.section`
-   font-family: 'Dosis', 'DejaVu Sans Mono', monospace;
+   font-family: 'Dosis', 'Helvetica Neue', monospace;
    margin-left: 25px;
    display: flex;
    
@@ -43,8 +43,8 @@ const OnTransitionTwo = styled.section`
     text-decoration: none;
     color: black;
     border: 5px solid black;
-    font-size: 45px;
-    padding: 40px 80px;
+    font-size: 32px;
+    padding: 20px 30px;
     font-weight: bold;
     position: relative;
     overflow: auto;
@@ -60,7 +60,7 @@ const OnTransitionTwo = styled.section`
     height: 100%;
     width: 100%;
     z-index: -1;
-    transform-origin: bottom left;
+    //transform-origin: bottom left;
     transform: translateX(-100%);
     transition: transform .5s;
    }
@@ -74,6 +74,46 @@ const OnTransitionTwo = styled.section`
    }
 `
 
+const AnotherTransition = styled.section`
+   font-family: 'Dosis', 'Helvetica Neue', monospace;
+   margin-left: 25px;
+   display: flex;
+   
+   a {
+    text-decoration: none;
+    color: black;
+    border: 5px solid orangered;
+    font-size: 25px;
+    padding: 15px 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: .5s;
+   }
+   
+   a::before {
+    content: '';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: orangered;
+    transition: .5s;
+    transform: rotateX(90deg);
+    z-index: -1;
+   }
+   
+   a:hover::before {
+    transform: rotateX(0);
+   }
+   
+`
+
 function Blank() {
   return (
       <Wrap>
@@ -81,8 +121,11 @@ function Blank() {
           cube
         </OnTransition>
         <OnTransitionTwo>
-          <a href="#">Hover me long long text here</a>
+          <a href="#">This is just a text</a>
         </OnTransitionTwo>
+        <AnotherTransition>
+          <a href="#">rotate x</a>
+        </AnotherTransition>
       </Wrap>
   )
 }
