@@ -16,6 +16,7 @@ import Loader from './Loader'
 const Tickets = lazy(() => import('./Tickets'))
 const Packages = lazy(() => import('./Packages'))
 const Blank = lazy(() => import('./Blank'))
+const Aligns = lazy(() => import('./Aligns'))
 
 const NavLinkStyled = styled(NavLink)`
   padding: 5px 10px;
@@ -140,6 +141,7 @@ function Root() {
                     <Route path='/' exact={true} component={Packages}/>
                     <Route path='/tickets' component={Tickets}/>
                     <Route path='/blank' component={Blank}/>
+                    <Route path='/bank' component={Aligns}/>
                     <Route component={Lost}/>
                   </Switch>
                 </Suspense>
