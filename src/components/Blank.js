@@ -89,7 +89,11 @@ const AnotherTransition = styled.section`
     letter-spacing: 2px;
     position: relative;
     overflow: hidden;
-    transition: .5s;
+    transition: .7s;
+   }
+   
+   a:hover {
+    background-color: crimson;
    }
    
    a::before {
@@ -100,16 +104,15 @@ const AnotherTransition = styled.section`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: orangered;
-    transition: .5s;
-    transform: rotateX(90deg);
-    z-index: -1;
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    transition: .7s;
+    transform: translateX(-100%) rotate(45deg);
    }
    
    a:hover::before {
-    transform: rotateX(0);
+    transform: translateX(100%) rotate(45deg);
    }
    
 `

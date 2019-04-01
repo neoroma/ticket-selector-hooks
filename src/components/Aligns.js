@@ -22,7 +22,8 @@ const WorkingArea = styled.div`
     writing-mode: vertical-lr;
     flex: 1 0 auto;
     font-size: 22px;
-    background-color: rgba(111,41,97,.3)
+    color: aliceblue;
+    background-color: orangered;
   }
 `
 
